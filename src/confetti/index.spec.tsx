@@ -13,7 +13,7 @@ const Sample = () => {
   );
 };
 
-test('confetti explodes', async () => {
+test('confetti explodes', () => {
   render(<Sample />);
   const explode = screen.getByText(/explode/i);
   expect(explode).toBeInTheDocument();
@@ -39,7 +39,7 @@ const OnCompleteSample = ({ onComplete }: { onComplete: () => void }) => {
 };
 
 test('onComplete is called at end of duration', async () => {
-  const onComplete = jest.fn();
+  const onComplete = vi.fn();
   render(<OnCompleteSample onComplete={onComplete} />);
   expect(onComplete).toHaveBeenCalledTimes(0);
   await act(async () => new Promise(resolve => setTimeout(resolve, 400)));
@@ -52,10 +52,9 @@ const ZIndexSample = () => {
   return <ConfettiExplosion data-testid="confetti" zIndex={321} />;
 };
 
-test('confetti inherits z-index', async () => {
+test('confetti inherits z-index', () => {
   const { baseElement } = render(<ZIndexSample />);
   // sorry eslint, this is the best way
-  // eslint-disable-next-line testing-library/no-node-access
   const portal = baseElement.querySelector('[class^="confetti-explosion-screen"]');
   expect(portal).toBeInTheDocument();
   expect(portal).toHaveStyle('z-index: 321');

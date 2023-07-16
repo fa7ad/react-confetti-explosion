@@ -1,19 +1,21 @@
 # React Confetti Explosion
 
-[![npm version](https://img.shields.io/npm/v/react-confetti-explosion.svg?style=flat-square)](https://www.npmjs.com/package/react-confetti-explosion)
+[![npm version](https://img.shields.io/npm/v/@fa7ad/react-confetti-explosion.svg?style=flat-square)](https://www.npmjs.com/package/@fa7ad/react-confetti-explosion)
+
+> This is a (potentially temporary) fork of [react-confetti-explosion](https://github.com/herrethan/react-confetti-explosion). The purpose of this fork is to deploy a demo site and migrate away from CRA+Rollup.
 
 This is inspired by [this](https://codepen.io/Gthibaud/pen/ENzXbp) beautiful and oft-used confetti which uses canvas, but equally inspired by how many bad looking CSS examples there are out there. The goal was to create a super lightweight confetti component that would not require canvas, use only CSS for animation, and could also be controlled as an explosion (rather than raining confetti), without the need to write a full-blown particle generator.
 
 Install:
 
 ```bash
-$ yarn add react-confetti-explosion
+$ pnpm add @fa7ad/react-confetti-explosion
 ```
 
 ## Usage
 
 ```jsx
-import ConfettiExplosion from 'react-confetti-explosion';
+import ConfettiExplosion from '@fa7ad/react-confetti-explosion';
 
 function App() {
   const [isExploding, setIsExploding] = React.useState(false);
